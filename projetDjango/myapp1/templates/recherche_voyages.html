@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Voyages</title>
+</head>
+<body>
+    <h1>Recherche de Voyages</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="lieu_depart">Lieu de départ:</label>
+        <input type="text" name="lieu_depart" required><br>
+        <label for="lieu_arrivee">Lieu d'arrivée:</label>
+        <input type="text" name="lieu_arrivee" required><br>
+        <label for="date_depart">Date de départ:</label>
+        <input type="date" name="date_depart" required><br>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if voyages %}
+    <h2>Résultats de la recherche:</h2>
+    <ul>
+        {% for voyage in voyages %}
+        <li>{{ voyage.nom }} - {{ voyage.description }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
