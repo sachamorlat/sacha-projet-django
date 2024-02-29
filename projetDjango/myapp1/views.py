@@ -16,7 +16,7 @@ def inscription(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('')  
+            return redirect('index')  
     else:
         form = UserCreationForm()
     return render(request, 'registration/inscription.html', {'form': form})
