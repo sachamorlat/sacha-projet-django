@@ -1,11 +1,16 @@
 {% extends "registration/base.html" %} {% block content %}
-<h2>Connexion</h2>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Se connecter</button>
-</form>
-<p>
-  Vous n'avez pas de compte ?
-  <a href="{% url 'inscription' %}">Inscrivez-vous ici</a>.
-</p>
+<div class="login-container">
+  <h2 class="login-title">Connexion</h2>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="login-button">Se connecter</button>
+  </form>
+  <p class="login-error-message">{{ error_message }}</p>
+
+  <p>
+    Vous n'avez pas de compte ?
+    <a href="{% url 'inscription' %}" class="signup-link">Inscrivez-vous ici</a
+    >.
+  </p>
+</div>
 {% endblock %}

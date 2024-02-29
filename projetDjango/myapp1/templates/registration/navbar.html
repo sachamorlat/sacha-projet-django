@@ -9,12 +9,11 @@
       </li>
       <li><a href="#">Itinéraire de Voyage</a></li>
       <li><a href="#">Conseils de Voyage</a></li>
-    </ul>
-    <li><a href="/">Accueil</a></li>
     {% if user.is_authenticated %}
     <li><a href="{% url 'logout' %}">Déconnexion</a></li>
     {% else %}
     <li><a href="{% url 'login' %}">Connexion</a></li>
     {% endif %}
   </nav>
+  </ul>
 </header>
