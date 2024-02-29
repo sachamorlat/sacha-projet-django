@@ -1,60 +1,102 @@
 /* Reset des marges et des rembourrages pour une mise en page plus propre */
-body, h1, h2, h3, p, ul, li {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
 }
 
 /* Style de base pour le corps de la page */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 /* Style pour l'en-tête */
 header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
 }
 
 header h1 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Style pour la navigation */
 nav ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+  display: inline;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Style pour le contenu principal */
 main {
-    padding: 20px;
+  padding: 20px;
 }
 
 /* Style pour le pied de page */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
+}
+
+/* Nouveaux styles pour le formulaire d'inscription */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0056b3;
 }
