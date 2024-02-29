@@ -1,23 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.contrib.auth.forms import UserCreationForm
 from .models import Voyage, Reservation
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-@login_required
+
 def index(request):
     return render(request, 'index.html')
 
 def inscription(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('index.html')  # Rediriger vers la page d'accueil après l'inscription
+            form.save()
+            return redirect('')  
     else:
-        form = CustomUserCreationForm()
-    return render(request, 'inscription.html', {'form': form})
+        form = UserCreationForm()
+    return render(request, 'registration/inscription.html', {'form': form})
 
 @login_required    
 def rechercher_voyages(request):

@@ -1,4 +1,5 @@
 {% load static %}
+{% include 'registration/navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +9,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Gestion des Voyages</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="./recherche_voyages.html">Rechercher un Vol</a></li>
-                <li><a href="./reserver_voyage.html">Réserver un Hébergement</a></li>
-                <li><a href="#">Itinéraire de Voyage</a></li>
-                <li><a href="#">Conseils de Voyage</a></li>
-            </ul>
-        </nav>
-    </header>
     <main>
         <section id="search-flight">
             <h2>Rechercher un Vol</h2>
@@ -42,23 +31,26 @@
         <section id="book-accommodation">
             <h2>Réserver un Hébergement</h2>
             <!-- Formulaire de réservation d'hébergement -->
-            <form action="{% url 'reserver_voyage' voyage.id %}" method="POST">
-                {% csrf_token %}
-                <!-- Champs de réservation -->
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" placeholder="Votre nom">
-            
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Votre adresse email">
-            
-                <label for="date_arrivee">Date d'arrivée:</label>
-                <input type="date" id="date_arrivee" name="date_arrivee">
-            
-                <label for="date_depart">Date de départ:</label>
-                <input type="date" id="date_depart" name="date_depart">
-            
-                <!-- Bouton de soumission -->
-                <button type="submit">Réserver</button>
+<!-- Formulaire de réservation d'hébergement -->
+<form action="{% url 'reserver_voyage' voyage_id=1 %}" method="POST">
+    {% csrf_token %}
+    <!-- Champs de réservation -->
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom" placeholder="Votre nom">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Votre adresse email">
+
+    <label for="date_arrivee">Date d'arrivée:</label>
+    <input type="date" id="date_arrivee" name="date_arrivee">
+
+    <label for="date_depart">Date de départ:</label>
+    <input type="date" id="date_depart" name="date_depart">
+
+    <!-- Bouton de soumission -->
+    <button type="submit">Réserver</button>
+</form>
+
             </form>
             
         </section>

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Inscription</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <h2>Inscription</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Login</button>
+        <button type="submit">S'inscrire</button>
     </form>
 </body>
 </html>

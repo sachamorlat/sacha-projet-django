@@ -101,6 +101,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'  # Redirection après la connexion réussie
+LOGOUT_REDIRECT_URL = '/'  # Redirection après la déconnexion
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
