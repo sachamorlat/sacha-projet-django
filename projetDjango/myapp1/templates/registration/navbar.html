@@ -7,8 +7,6 @@
       <li>
         <a href="{% url 'reserver_voyage' 1 %}">Réserver un Hébergement</a>
       </li>
-      <li><a href="#">Itinéraire de Voyage</a></li>
-      <li><a href="#">Conseils de Voyage</a></li>
     {% if user.is_authenticated %}
     <li><a href="{% url 'logout' %}">Déconnexion</a></li>
     {% else %}
