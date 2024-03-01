@@ -29,6 +29,10 @@ header h1 {
   margin-bottom: 10px;
 }
 
+h2 {
+  text-align: center;
+}
+
 /* Style pour la navigation */
 nav ul {
   list-style-type: none;
@@ -73,6 +77,7 @@ form {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 form input[type="text"],
@@ -150,4 +155,80 @@ form button[type="submit"]:hover {
   font-size: 14px;
   margin-top: 10px;
   text-align: center;
+}
+
+/* Style pour le conteneur principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Style pour la barre de recherche */
+.search {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search button:hover {
+  background-color: #0056b3;
+}
+
+/* Style pour la liste d'éléments */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Style pour le lien de retour */
+.retour {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+}
+
+.retour:hover {
+  text-decoration: underline;
 }

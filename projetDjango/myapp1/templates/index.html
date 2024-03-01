@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Voyages</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
     <main>
         <section id="search-flight">
-            <h2>Rechercher un Vol</h2>
-            <!-- Formulaire de recherche de vol -->
+            <h2>Rechercher un Voyage</h2>
+            <!-- Formulaire de recherche de voyages -->
             <form action="{% url 'rechercher_voyages' %}" method="GET">
                 <!-- Champs de recherche -->
                 <label for="depart">Départ:</label>
@@ -31,53 +31,31 @@
         <section id="book-accommodation">
             <h2>Réserver un Hébergement</h2>
             <!-- Formulaire de réservation d'hébergement -->
-<!-- Formulaire de réservation d'hébergement -->
-<form action="{% url 'reserver_voyage' voyage_id=1 %}" method="POST">
-    {% csrf_token %}
-    <!-- Champs de réservation -->
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" name="nom" placeholder="Votre nom">
+            <form action="{% url 'reserver_voyage' voyage_id=1 %}" method="POST">
+                {% csrf_token %}
+                <!-- Champs de réservation -->
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom">
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Votre adresse email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Votre adresse email">
 
-    <label for="date_arrivee">Date d'arrivée:</label>
-    <input type="date" id="date_arrivee" name="date_arrivee">
+                <label for="date_arrivee">Date d'arrivée:</label>
+                <input type="date" id="date_arrivee" name="date_arrivee">
 
-    <label for="date_depart">Date de départ:</label>
-    <input type="date" id="date_depart" name="date_depart">
+                <label for="date_depart">Date de départ:</label>
+                <input type="date" id="date_depart" name="date_depart">
 
-    <!-- Bouton de soumission -->
-    <button type="submit">Réserver</button>
-</form>
+                <!-- Bouton de soumission -->
+                <button type="submit">Réserver</button>
+            </form>
 
             </form>
             
         </section>
-        <section id="travel-itinerary">
-            <h2>Itinéraire de Voyage</h2>
-            <!-- Affichage de l'itinéraire de voyage -->
-            <h2>Itinéraire de voyage</h2>
-            <p><strong>Départ:</strong> {{ voyage.depart }}</p>
-            <p><strong>Destination:</strong> {{ voyage.destination }}</p>
-            <p><strong>Date de départ:</strong> {{ voyage.date_depart }}</p>
-            <p><strong>Date de retour:</strong> {{ voyage.date_retour }}</p>
-            <p><strong>Durée du voyage:</strong> {{ voyage.duree }}</p>
-            <p><strong>Coût:</strong> {{ voyage.cout }}</p>
-        </section>
-        <section id="travel-tips">
-            <h2>Conseils de Voyage</h2>
-            <!-- Affichage de conseils de voyage basés sur la géolocalisation -->
-            <h2>Conseils de voyage basés sur la géolocalisation</h2>
-            <ul>
-                {% for conseil in conseils %}
-                <li>{{ conseil }}</li>
-                {% endfor %}
-            </ul>
-        </section>
     </main>
     <footer>
-        <p>&copy; 2024 Gestion des Voyages. Tous droits réservés.</p>
+        <p>&copy; 2024 Gestion des Voyages. Tous droits non réservés.</p>
     </footer>
 </body>
 </html>

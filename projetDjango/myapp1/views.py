@@ -16,7 +16,7 @@ def inscription(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')  
+            return redirect('login')  
     else:
         form = UserCreationForm()
     return render(request, 'registration/inscription.html', {'form': form})
@@ -31,13 +31,15 @@ def user_login(request):
             return redirect('index')
         else:
             messages.error(request, 'Identifiant ou mot de passe incorrect.')
-    return render(request, 'registrattion/login.html')
+            return render(request, 'authentification/login.html')
+    elif request.method == 'GET':
+        return render(request, 'authentification/login.html')
 
 @login_required
 def user_logout(request):
-    if request.method == 'GET':  # Vérifiez la méthode HTTP
+    if request.method == 'GET': 
         logout(request)
-        return redirect('login')  # Rediriger vers la page de connexion après déconnexion
+        return redirect('login')  
     else:
         return HttpResponseNotAllowed(['GET'])
 
@@ -47,10 +49,12 @@ def rechercher_voyages(request):
         lieu_depart = request.POST.get('lieu_depart')
         lieu_arrivee = request.POST.get('lieu_arrivee')
         date_depart = request.POST.get('date_depart')
-        voyages = Voyage.objects.filter(lieu_depart=lieu_depart, lieu_arrivee=lieu_arrivee, date_depart=date_depart)
-        return render(request, 'recherche_voyages.html', {'voyages': voyages})
+        voyages = Voyage.objects.filter(Q(lieu_depart__icontains=lieu_depart) | 
+                                         Q(lieu_arrivee__icontains=lieu_arrivee) | 
+                                         Q(date_depart__icontains=date_depart))
+        return render(request, 'rechercher_voyages.html', {'voyages': voyages})
     else:
-        return render(request, 'recherche_voyages.html')
+        return render(request, 'rechercher_voyages.html')
 
 @login_required
 def reserver_voyage(request, voyage_id):

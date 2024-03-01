@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Où voulez-vous allez ?</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Liste des hebergements et des voyages :</h2>
+      <div class="search">
+        <form action="{% url 'rechercher_voyages' %}" method="GET">
+          <input type="text" placeholder="Entrez une ville" name="q" />
+          <button type="submit">Rechercher</button>
+        </form>
+      </div>
+      <div>
+        <ul>
+          {% for hebergement in hebergements %}
+          <li>
+            <a href="{% url 'detail_hebergement' hebergement.id %}"
+              >{{ hebergement.nom }}</a
+            >
+          </li>
+          {% endfor %} {% for voyage in voyages %}
+          <li>
+            <a href="{% url 'detail_voyage' voyage.id %}">{{ voyage.titre }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <a href="{% url 'index' %}" class="retour">Retour</a>
+    </div>
+  </body>
+</html>
